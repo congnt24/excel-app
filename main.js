@@ -56,7 +56,7 @@ function deRef(key, cur_key, str, obj, tmp = []) {
         if (['+', '-', '*', '/'].includes(item) || !isNaN(item)) {
             ar2.push(item);
         } else {
-            if (key === item) {
+            if (key === item || tmp.includes(item)) {
                 throw `Circular dependency between ${key} and ${tmp[0]} detected`;
             }
             tmp.push(item);
